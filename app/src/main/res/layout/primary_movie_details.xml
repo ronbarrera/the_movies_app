@@ -1,0 +1,82 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/horizontal_middle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.4" />
+
+        <ImageView
+            android:id="@+id/movie_poster_imageview"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/poster"
+            app:layout_constraintBottom_toBottomOf="@id/vote_average_textview"
+            app:layout_constraintEnd_toEndOf="@id/horizontal_middle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/original_title_label_textview" />
+
+        <TextView
+            android:id="@+id/original_title_label_textview"
+            style="@style/DetailTextViewLabel"
+            android:text="@string/original_title_label"
+            app:layout_constraintBottom_toTopOf="@id/original_title_textview"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/horizontal_middle"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/original_title_textview"
+            style="@style/DetailTextView"
+            android:textAlignment="center"
+            tools:text="The Lord of the Rings: The Return of the King"
+            app:layout_constraintBottom_toTopOf="@+id/release_date_label_textview"
+            app:layout_constraintEnd_toEndOf="@+id/original_title_label_textview"
+            app:layout_constraintStart_toStartOf="@+id/original_title_label_textview"
+            app:layout_constraintTop_toBottomOf="@+id/original_title_label_textview" />
+
+        <TextView
+            android:id="@+id/release_date_label_textview"
+            style="@style/DetailTextViewLabel"
+            android:text="@string/release_date_label"
+            app:layout_constraintBottom_toTopOf="@+id/release_date_textview"
+            app:layout_constraintEnd_toEndOf="@+id/original_title_textview"
+            app:layout_constraintStart_toStartOf="@+id/original_title_textview"
+            app:layout_constraintTop_toBottomOf="@+id/original_title_textview" />
+
+        <TextView
+            android:id="@+id/release_date_textview"
+            style="@style/DetailTextView"
+            android:textAlignment="center"
+            tools:text="Dec 01, 2003"
+            app:layout_constraintBottom_toTopOf="@+id/vote_average_textview"
+            app:layout_constraintEnd_toEndOf="@+id/release_date_label_textview"
+            app:layout_constraintStart_toStartOf="@+id/release_date_label_textview"
+            app:layout_constraintTop_toBottomOf="@+id/release_date_label_textview" />
+
+        <TextView
+            android:id="@+id/vote_average_textview"
+            style="@style/TextAppearance.AppCompat.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:drawableEnd="@drawable/ic_vote_average"
+            android:drawablePadding="5dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            tools:text="83%"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/release_date_textview"
+            app:layout_constraintStart_toStartOf="@+id/release_date_textview"
+            app:layout_constraintTop_toBottomOf="@+id/release_date_textview" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

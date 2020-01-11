@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Widget.MaterialComponents.CardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="25dp"
+    app:cardCornerRadius="10dp"
+    android:layout_margin="5dp">
+<!--    app:cardUseCompatPadding="true">-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:minHeight="?android:attr/listPreferredItemHeight">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/horizontal_middle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.1" />
+
+
+        <ImageView
+            android:id="@+id/video_icon"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_play_button"
+            app:layout_constraintBottom_toBottomOf="@id/video_description"
+            app:layout_constraintEnd_toStartOf="@id/horizontal_middle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/video_title" />
+
+        <TextView
+            android:id="@+id/video_title"
+            style="@style/DetailTextView"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toTopOf="@id/video_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/horizontal_middle"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="The Lord of the Rings: The Return of the King Official Trailer #1 - (2003) HD" />
+
+        <TextView
+            android:id="@+id/video_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/video_title"
+            app:layout_constraintStart_toStartOf="@id/video_title"
+            app:layout_constraintTop_toBottomOf="@id/video_title"
+            tools:text="Teaser • YouTube" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

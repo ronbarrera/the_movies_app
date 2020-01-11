@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">The Movies App</string>
+
+    <string name="popular_movies">Popular Movies</string>
+    <string name="top_rate_movies">Top Rated Movies</string>
+    <string name="favorite_movies">Favorite Movies</string>
+
+    <string-array name="options_array">
+        <item>@string/popular_movies</item>
+        <item>@string/top_rate_movies</item>
+        <item>@string/favorite_movies</item>
+    </string-array>
+
+
+    <!-- TextView Labels Detail Activity -->
+    <string name="original_title_label">Original Title</string>
+    <string name="release_date_label">Release Date</string>
+    <string name="overview_label">Overview</string>
+    <string name="video_label">Videos</string>
+    <string name="reviews_label">Reviews</string>
+
+    <string name="snackbar_movie_added">Movie added to favorites</string>
+    <string name="snackbar_moview_removed">Movie removed from favorites</string>
+
+    <string name="filter_by">Filter By</string>
+
+    <string name="appbar_scrolling_view_behavior" translatable="false">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
+
+
+    <string name="percentage">%</string>
+    <string name="dot">\u0020•\u0020</string>
+    <string name="no_internet_error">No Internet Connection</string>
+
+    <!-- review item card strings -->
+    <string name="review_by_label">Review by</string>
+
+</resources>

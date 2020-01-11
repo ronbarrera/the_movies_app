@@ -1,0 +1,68 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/overview_label_textview"
+            style="@style/DetailTextViewLabel"
+            android:text="@string/overview_label"
+            app:layout_constraintBottom_toTopOf="@id/overview_textview"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/overview_textview"
+            style="@style/DetailTextView"
+            android:layout_margin="16dp"
+            tools:text="Aragorn is revealed as the heir to the ancient kings as he, Gandalf and the other members of the broken fellowship struggle to save Gondor from Sauron's forces. Meanwhile, Frodo and Sam take the ring closer to the heart of Mordor, the dark lord's realm."
+            app:layout_constraintStart_toStartOf="@id/overview_label_textview"
+            app:layout_constraintTop_toBottomOf="@id/overview_label_textview"
+            app:layout_constraintEnd_toEndOf="@id/overview_label_textview"/>
+
+        <TextView
+            android:id="@+id/videos_label_textview"
+            style="@style/DetailTextViewLabel"
+            android:text="@string/video_label"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@id/overview_label_textview"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/overview_label_textview"
+            app:layout_constraintTop_toBottomOf="@id/overview_textview" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/videos_recyclerview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/videos_label_textview"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/reviews_label_textview"
+            style="@style/DetailTextViewLabel"
+            android:text="@string/reviews_label"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@id/videos_label_textview"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/videos_label_textview"
+            app:layout_constraintTop_toBottomOf="@id/videos_recyclerview" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/reviews_recyclerview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/reviews_label_textview"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
