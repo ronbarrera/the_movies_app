@@ -53,8 +53,6 @@ public class MainActivity extends AppCompatActivity implements MoviesAdapter.Mov
     MenuItem menuItem;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,12 +62,8 @@ public class MainActivity extends AppCompatActivity implements MoviesAdapter.Mov
         mSelectionLabel = findViewById(R.id.option_selected_label);
         mRecyclerView = findViewById(R.id.movies_recyclerview);
 
-        // Set the layout for the RecyclerView to be a linear layout, which measures and
-        // positions items within a RecyclerView into a linear list
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(MainActivity.this, 3);
         mRecyclerView.setLayoutManager(layoutManager);
-
-        // Initialize the adapter and attach it to the RecyclerView
         mAdapter = new MoviesAdapter(this, this);
         mRecyclerView.setAdapter(mAdapter);
 
@@ -142,9 +136,8 @@ public class MainActivity extends AppCompatActivity implements MoviesAdapter.Mov
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
-        if (CURRENT_FILTER_BY == null){
+        if (CURRENT_FILTER_BY == null)
             return true;
-        }
 
         switch (CURRENT_FILTER_BY){
             case FILTER_BY_POPULAR:
@@ -168,7 +161,6 @@ public class MainActivity extends AppCompatActivity implements MoviesAdapter.Mov
                 menuItem.setChecked(true);
                 break;
         }
-
         return true;
     }
 
@@ -212,9 +204,7 @@ public class MainActivity extends AppCompatActivity implements MoviesAdapter.Mov
                 fetchMovies(CURRENT_FILTER_BY, ++page);
             }
         });
-
     }
-
 
     @Override
     public void onClick(Movie article) {
@@ -226,6 +216,4 @@ public class MainActivity extends AppCompatActivity implements MoviesAdapter.Mov
         intentToStartDetailActivity.putExtra("movie", gson.toJson(article));
         startActivity(intentToStartDetailActivity);
     }
-
-
 }

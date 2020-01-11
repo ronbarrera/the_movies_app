@@ -4,15 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -47,7 +44,6 @@ public class DetailActivity extends AppCompatActivity implements  VideosAdapter.
 
     private String POSTER_IMGAGE_SIZE = "w342";
     private String BACKDROP_IMGAGE_SIZE = "w342";
-
     private static String BASE_IMAGE_URL = "https://image.tmdb.org/t/p/";
 
     boolean isFavorite;
@@ -56,12 +52,9 @@ public class DetailActivity extends AppCompatActivity implements  VideosAdapter.
     List<Video> videosList;
 
     private ActivityDetailBinding mDetailBinding;
-
     private AppDatabase mDb;
 
-    // Constant for default task id to be used when not in update mode
     private static final int DEFAULT_MOVIE_ID = -1;
-
     private int mMovieId = DEFAULT_MOVIE_ID;
 
     MovieEntry movieDb;
@@ -128,12 +121,10 @@ public class DetailActivity extends AppCompatActivity implements  VideosAdapter.
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         MenuItem item = menu.findItem(R.id.action_favorite);
-        if(isFavorite) {
+        if(isFavorite)
             item.setIcon(R.drawable.ic_favorite_filled);
-        } else {
+        else
             item.setIcon(R.drawable.ic_favorite_unfilled);
-
-        }
         return super.onPrepareOptionsMenu(menu);
     }
 
@@ -145,13 +136,11 @@ public class DetailActivity extends AppCompatActivity implements  VideosAdapter.
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
         switch (item.getItemId()) {
             case R.id.action_favorite:
                 onFavorite(item);
                 return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -187,7 +176,6 @@ public class DetailActivity extends AppCompatActivity implements  VideosAdapter.
     }
 
     private void fetchVideos(int movie_id) {
-
         MoviesApiInterface apiInterface = MoviesApiClient.getClient().create(MoviesApiInterface.class);
         Call<VideosModel> call = apiInterface.getMovieVideos(movie_id, getString(R.string.moviesApiKey));
 
@@ -232,13 +220,13 @@ public class DetailActivity extends AppCompatActivity implements  VideosAdapter.
         View view = findViewById(R.id.detail_layout);
         Snackbar snackbar = Snackbar
                 .make(view, getString(R.string.no_internet_error), Snackbar.LENGTH_LONG);
-
         snackbar.show();
     }
 
     private void generateVideosDataList(List<Video> videosList) {
         if(videosList.size() > 0)
             mDetailBinding.extraDetails.videosLabelTextview.setVisibility(View.VISIBLE);
+
         VideosAdapter adapter = new VideosAdapter(this, videosList, this);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(DetailActivity.this, RecyclerView.VERTICAL, false);
         mDetailBinding.extraDetails.videosRecyclerview.setLayoutManager(layoutManager);
@@ -248,6 +236,7 @@ public class DetailActivity extends AppCompatActivity implements  VideosAdapter.
     private void generateReviewsDataList(List<Review> reviewsList) {
         if(reviewsList.size() > 0)
             mDetailBinding.extraDetails.reviewsLabelTextview.setVisibility(View.VISIBLE);
+
         ReviewsAdapter adapter = new ReviewsAdapter(this, reviewsList);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(DetailActivity.this, RecyclerView.VERTICAL, false);
         mDetailBinding.extraDetails.reviewsRecyclerview.setLayoutManager(layoutManager);
@@ -264,7 +253,6 @@ public class DetailActivity extends AppCompatActivity implements  VideosAdapter.
     }
 
     public static String formatDate(String inputDate){
-
         String inputFormat = "yyyy-MM-dd";
         String outputFormat = "MMM dd, yyyy";
         Date parsed = null;

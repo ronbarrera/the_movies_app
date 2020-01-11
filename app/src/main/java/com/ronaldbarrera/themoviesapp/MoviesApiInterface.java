@@ -11,12 +11,6 @@ import retrofit2.http.Query;
 
 public interface MoviesApiInterface {
 
-    @GET("movie/popular")
-    Call<MoviesModel> getPopularMovies(@Query("page") int page, @Query("api_key") String key);
-
-    @GET("movie/top_rated")
-    Call<MoviesModel> getTopRatedMovies(@Query("page") int page, @Query("api_key") String key);
-
     @GET("movie/{filter_by}")
     Call<MoviesModel> getMovies(@Path("filter_by") String filterBy, @Query("page") int page, @Query("api_key") String key);
 

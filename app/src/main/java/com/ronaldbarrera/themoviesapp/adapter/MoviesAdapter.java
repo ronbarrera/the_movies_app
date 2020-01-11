@@ -15,9 +15,6 @@ import com.ronaldbarrera.themoviesapp.model.Movie;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 
@@ -57,7 +54,6 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MoviesAdap
     }
 
     public void setOnBottomReachedListener(OnBottomReachedListener onBottomReachedListener){
-
         this.onBottomReachedListener = onBottomReachedListener;
     }
 
@@ -66,7 +62,6 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MoviesAdap
 
         private ImageView posterImage;
         ProgressBar imageProgressbar;
-
 
         MoviesAdapterViewHolder(View view) {
             super(view);
@@ -97,9 +92,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MoviesAdap
             if (position > getItemCount() - 2)
                 onBottomReachedListener.onBottomReached(position);
         }
-
         String imageURL =  BASE_IMAGE_URL + mMovieList.get(position).getPoster_path();
-
         Picasso.get()
                 .load(imageURL)
                 .into(holder.posterImage, new Callback() {

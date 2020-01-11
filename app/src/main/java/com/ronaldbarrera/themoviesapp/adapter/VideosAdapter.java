@@ -30,22 +30,10 @@ public class VideosAdapter extends RecyclerView.Adapter<VideosAdapter.VideosAdap
         void onClick(Video article);
     }
 
-    public void clear() {
-        videosList.clear();
-        notifyDataSetChanged();
-    }
-
-    public void addAll(List<Video> list) {
-        videosList.addAll(list);
-        notifyDataSetChanged();
-    }
-
-
     public class VideosAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private TextView videoTitle;
         private TextView videoDescription;
-
 
         VideosAdapterViewHolder(View view) {
             super(view);
